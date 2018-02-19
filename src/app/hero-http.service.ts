@@ -1,26 +1,25 @@
-import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
+import {Injectable} from '@angular/core';
 import {HeroService} from "./hero-service";
 import {Observable} from "rxjs/Observable";
 import {Hero} from "./hero";
 
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
-export class HeroHttpService extends  HeroService{
+export class HeroHttpService extends HeroService {
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     super();
   }
 
   getHeroes(): Observable<Hero[]> {
-    return this.http.get(this.heroesUrl)
-      .map(res => res.json())
+    return this.http.get<Hero[]>(this.heroesUrl)
       .catch(this.handleError);
   }
 
-  private handleError(error: any){
+  private handleError(error: any) {
     console.error(error);
     return Observable.throw(error);
   }
