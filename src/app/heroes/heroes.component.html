@@ -1,0 +1,9 @@
+<p>
+  heroes works!
+</p>
+
+<ul class="hero_list" *ngIf="(heroes$ | async) !== null">
+  <li class="hero" *ngFor="let hero of heroes$ | async">
+    {{ hero.name }}
+  </li>
+</ul>
