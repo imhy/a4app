@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HeroHttpService} from "../hero-http.service";
 import {Hero} from "../hero";
 import {Observable} from "rxjs/Observable";
@@ -10,7 +10,8 @@ import {Observable} from "rxjs/Observable";
 })
 export class HeroesComponent implements OnInit {
 
-  constructor(private heroService: HeroHttpService) { }
+  constructor(private heroService: HeroHttpService) {
+  }
 
   private heroes$: Observable<Hero[]>;
 
